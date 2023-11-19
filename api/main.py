@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
-from app.psql import create_db_connection, pgvector_search
-from app.bedrock import encode
+from api.psql import create_db_connection, pgvector_search
+from api.bedrock import encode
 
 
 api = FastAPI()
