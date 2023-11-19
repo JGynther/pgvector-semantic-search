@@ -1,0 +1,4 @@
+psycopg2-binary>=2.9.9
+fastapi>=0.104.1
+boto3>=1.29.3
+uvicorn>=0.24.0.post1
