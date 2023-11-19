@@ -3,6 +3,9 @@ from typing import Union
 
 
 def window(iterable, size: int, overlap=32):
+    """
+    Generator for getting sliding windows from iterable
+    """
     start = 0
     end = size
     step = size - overlap
@@ -21,6 +24,9 @@ def segment(
     max_tokens=200,
     overlap=32,
 ) -> list[str]:
+    """
+    Segment text into overlapping segments for embedding.
+    """
     tokens = tokenizer(text)
     input_ids = tokens["input_ids"]
 
@@ -30,6 +36,8 @@ def segment(
     segments = []
 
     for i in window(input_ids, max_tokens, overlap):
+        # FIXME: encoding is a desctructive process and decoding does not result in the original text
+        # There are added symbols like <s>
         segment = tokenizer.decode(i)
         segments.append(segment)
 
